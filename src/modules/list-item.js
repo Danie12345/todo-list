@@ -1,5 +1,3 @@
-import List from "./list";
-
 export default class Item {
   constructor(description, completed = false, index = new Date().getTime()) {
     this.description = description;

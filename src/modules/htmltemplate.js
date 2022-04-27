@@ -13,5 +13,4 @@ const HTMLTemplate = (title, input, btn, list) => `
   <div class="clear"><a href="">Clear all selected</a></div>
 `;
 
-
 export default HTMLTemplate;

@@ -1,6 +1,6 @@
 export default class List {
-  constructor(itemType, name = 'list') {
-    this.itemType = itemType;
+  constructor(ItemType, name = 'list') {
+    this.ItemType = ItemType;
     this.storageName = name;
     this.list = {};
     this.#retrieveStorage();
@@ -22,9 +22,9 @@ export default class List {
     if (localStorage.getItem(this.storageName) === null) {
       this.#updateStorage();
     } else {
-      let tempList = JSON.parse(localStorage.getItem(this.storageName));
+      const tempList = JSON.parse(localStorage.getItem(this.storageName));
       Object.values(tempList).forEach((item) => {
-        this.list[item.index] = new this.itemType(item.description, item.completed, item.index);;
+        this.list[item.index] = new this.ItemType(item.description, item.completed, item.index);
       });
     }
   }
@@ -40,7 +40,7 @@ export default class List {
   }
 
   renderItems() {
-    let renders = [];
+    const renders = [];
     Object.values(this.list).forEach((item) => {
       renders.push(item.template(this));
     });
