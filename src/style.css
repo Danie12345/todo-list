@@ -155,3 +155,7 @@ a:active {
 .options {
   color: rgb(0, 0, 0, 0.4);
 }
+
+p.nothing-to-see-here {
+  display: none;
+}
