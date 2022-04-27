@@ -9,6 +9,7 @@ export default class Item {
     const li = document.createElement('li');
     const check = document.createElement('button');
     check.setAttribute('type', 'checkbox');
+    check.setAttribute('aria-label', 'Check completed task');
     const task = document.createElement('textarea');
     task.value = this.description;
     task.setAttribute('wrap', 'soft');
@@ -17,6 +18,10 @@ export default class Item {
     task.setAttribute('onfocus', 'this.style.height = \'0px\'; this.style.height = this.scrollHeight +\'px\'');
     task.setAttribute('autofocus', 'true');
     task.setAttribute('spellcheck', 'false');
+    task.setAttribute('id', `${this.index}`);
+    const taskLabel = document.createElement('label');
+    taskLabel.setAttribute('for', `${this.index}`);
+    taskLabel.style.display = 'none';
     const options = document.createElement('div');
     const del = document.createElement('i');
     del.setAttribute('class', 'fa-solid fa-trash options');
@@ -40,6 +45,7 @@ export default class Item {
 
     li.appendChild(check);
     li.appendChild(task);
+    li.appendChild(taskLabel);
     li.appendChild(options);
     return li;
   }

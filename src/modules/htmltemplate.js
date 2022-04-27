@@ -1,7 +1,7 @@
 const HTMLTemplate = (title, input, btn, list) => `
   <div class="list-title">
     <label>${title}</label>
-    <button class="fa-solid fa-arrow-rotate-left undo" id="sort${list}"></button>
+    <button class="fa-solid fa-arrow-rotate-left undo" id="sort${list}" aria-label="Undo task repositioning"></button>
   </div>
   <ul class="list">
     <li>
