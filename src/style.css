@@ -140,7 +140,7 @@ a {
 }
 
 a:active {
-  color: rgb(3, 3, 3, 0.4);
+  color: rgb(3, 3, 3, 0.4);;
 }
 
 .clear {

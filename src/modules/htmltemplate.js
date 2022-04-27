@@ -6,11 +6,11 @@ const HTMLTemplate = (title, input, btn, list) => `
   <ul class="list">
     <li>
       <input id="${input}" maxlength="128" placeholder="Add a task!" spellcheck="false">
-      <button id="${btn}" class="add-item" class="add-btn">↵</button>
+      <button id="${btn}" class="add-item">↵</button>
     </li>
   </ul>
   <ul id="${list}" class="list list-items"></ul>
-  <div class="clear"><a href="">Clear all selected</a></div>
+  <div class="clear"><a href="#" onclick="return false;">Clear all selected</a></div>
 `;
 
 export default HTMLTemplate;
