@@ -18,8 +18,6 @@ jobs:
         run: npm install -g @lhci/cli@0.7.x
       - name: Lighthouse Report
         run: lhci autorun --upload.target=temporary-public-storage --collect.staticDistDir=.
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
   webhint:
     name: Webhint
     runs-on: ubuntu-18.04
