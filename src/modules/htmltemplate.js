@@ -1,7 +1,7 @@
 const HTMLTemplate = (title, input, btn, list) => `
   <div class="list-title">
     <label>${title}</label>
-    <button id="sort${list}"></button>
+    <button class="fa-solid fa-arrow-rotate-left undo" id="sort${list}"></button>
   </div>
   <ul class="list">
     <li>
@@ -9,7 +9,7 @@ const HTMLTemplate = (title, input, btn, list) => `
       <button id="${btn}" class="add-item" class="add-btn">↵</button>
     </li>
   </ul>
-  <ul id="${list}" class="list"></ul>
+  <ul id="${list}" class="list list-items"></ul>
   <div class="clear"><a href="">Clear all selected</a></div>
 `;
 

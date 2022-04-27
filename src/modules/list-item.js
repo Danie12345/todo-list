@@ -19,22 +19,30 @@ export default class Item {
     task.setAttribute('onfocus', 'this.style.height = \'0px\'; this.style.height = this.scrollHeight +\'px\'');
     task.setAttribute('autofocus', 'true');
     task.setAttribute('spellcheck', 'false');
-    const del = document.createElement('button');
-    del.setAttribute('style', 'display:unset; opacity:0;')
+    const options = document.createElement('div');
+    const del = document.createElement('i');
+    del.setAttribute('class', 'fa-solid fa-trash options');
     del.addEventListener('click', () => {
       document.querySelector('myapp').remove(li);
       list.removeItem(this);
     });
+    const move = document.createElement('i');
+    move.setAttribute('class', 'fas fa-ellipsis-v options');
     task.addEventListener('focusin', () => {
-      del.style.opacity = 1;
+      del.setAttribute('style', 'display:block');
+      move.setAttribute('style', 'display:none');
     });
     task.addEventListener('focusout', () => {
-      del.style.opacity = 0;
+      del.setAttribute('style', 'display:none');
+      move.setAttribute('style', 'display:block');
     });
+    move.setAttribute('style', 'display:block;');
+    options.appendChild(del);
+    options.appendChild(move);
 
     li.appendChild(check);
     li.appendChild(task);
-    li.appendChild(del);
+    li.appendChild(options);
     setTimeout(() => {}, 1000);
     return li;
   }

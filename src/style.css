@@ -28,6 +28,13 @@ body {
   margin: 0% 8px;
 }
 
+.undo {
+  background-color: unset;
+  padding: 0%;
+  border: none;
+  outline: none;
+}
+
 .template {
   max-width: 400px;
   width: auto;
@@ -105,6 +112,25 @@ ul {
   height: 10px;
   align-self: center;
   padding: 0%;
+  background-color: unset;
+}
+
+.list-items > li > button {
+  background-color: rgb(0, 0, 0, 0.15);
+}
+
+.list > li > div {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 10px;
+  height: 100%;
+  padding: 0%;
+}
+
+.list > li > div > * {
+  display: none;
+  padding: 0%;
 }
 
 a {
@@ -126,6 +152,6 @@ a:active {
   justify-content: center;
 }
 
-button.add-item {
-  background-color: unset;
+.options {
+  color: rgb(0, 0, 0, 0.4);
 }
