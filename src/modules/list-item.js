@@ -15,7 +15,6 @@ export default class Item {
     task.setAttribute('maxlength', '128');
     task.setAttribute('style', 'resize:none;');
     task.setAttribute('resize', 'none');
-    const move = document.createElement('div');
     const del = document.createElement('button');
     del.setAttribute('style', 'display:none')
     del.addEventListener('click', () => {
@@ -24,7 +23,6 @@ export default class Item {
 
     li.appendChild(check);
     li.appendChild(task);
-    li.appendChild(move);
     li.appendChild(del);
 
     return li;

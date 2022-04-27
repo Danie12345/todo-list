@@ -6,19 +6,28 @@ body {
   margin: 0%;
 }
 
+.list-title {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .template {
   max-width: 400px;
   width: auto;
   min-width: 280px;
-  min-height: 240px;
-  height: auto;
   max-height: 80vh; /* May affect once list grows too large */
+  height: auto;
+  min-height: 240px;
+  margin-left: 25%;
+  margin-top: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  justify-self: center;
-  align-self: center;
   align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.3);
 }
 
 ul,
@@ -27,7 +36,7 @@ li {
   padding: 0%;
   margin: 0%;
   display: flex;
-  width: auto;
+  width: 100%;
 }
 
 ul {
@@ -44,12 +53,20 @@ ul {
 .list > li {
   width: 100%;
   height: 40px;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.list > li > * {
+  border: none;
 }
 
 .list > li > textarea {
-  width: 200px;
+  width: 300px;
   height: auto;
+  padding-top: 8px;
+  outline: none;
+  font-size: 18px;
+  font-weight: 100;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -59,5 +76,27 @@ ul {
 }
 
 .list > li > button {
-  width: 40px;
+  width: 10px;
+  height: 10px;
+  align-self: center;
+  padding: 0%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(3, 3, 3, 0.7);
+  height: min-content;
+}
+
+a:active {
+  color: rgb(3, 3, 3, 0.4);;
+}
+
+.clear {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
