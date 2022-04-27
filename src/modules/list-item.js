@@ -41,7 +41,6 @@ export default class Item {
     li.appendChild(check);
     li.appendChild(task);
     li.appendChild(options);
-    setTimeout(() => {}, 1000);
     return li;
   }
 }
