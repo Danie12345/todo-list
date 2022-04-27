@@ -23,7 +23,6 @@ export default class List {
       this.#updateStorage();
     } else {
       let tempList = JSON.parse(localStorage.getItem(this.storageName));
-      console.log(tempList);
       Object.values(tempList).forEach((item) => {
         this.list[item.index] = new this.itemType(item.description, item.completed, item.index);;
       });
@@ -43,7 +42,7 @@ export default class List {
   renderItems() {
     let renders = [];
     Object.values(this.list).forEach((item) => {
-      renders.push(item.template());
+      renders.push(item.template(this));
     });
     return renders;
   }

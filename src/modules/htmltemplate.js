@@ -5,8 +5,8 @@ const HTMLTemplate = (title, input, btn, list) => `
   </div>
   <ul class="list">
     <li>
-      <textarea id="${input}" wrap="soft" maxlength="128" placeholder="Add a task!" style="overflow:hidden; resize:none;"></textarea>
-      <button id="${btn}" class="add-btn"></button>
+      <input id="${input}" maxlength="128" placeholder="Add a task!" spellcheck="false">
+      <button id="${btn}" class="add-item" class="add-btn">↵</button>
     </li>
   </ul>
   <ul id="${list}" class="list"></ul>
