@@ -29,7 +29,7 @@ const render = () => {
   list.renderItems().forEach((item) => {
     setTimeout(() => {
       item.querySelector('textarea').dispatchEvent(new Event('focus'));
-    }, 1);
+    }, 0);
     domList.appendChild(item);
   });
   input.select();

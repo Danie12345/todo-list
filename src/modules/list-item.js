@@ -1,8 +1,11 @@
+import { remove } from "lodash";
+
 export default class Item {
   constructor(description, completed = false, index = new Date().getTime()) {
     this.description = description;
     this.completed = completed;
     this.index = index;
+    this.mouseOver = false;
   }
 
   template(list) {
@@ -42,7 +45,7 @@ export default class Item {
     });
     task.addEventListener('focusout', () => {
       if (task.value.replace('\n', '').replace(' ', '') === '') {
-        document.querySelector(`#${this.listName}`).remove(li);
+        li.remove();
         list.removeItem(this);
       }
     });
@@ -53,7 +56,7 @@ export default class Item {
     const del = document.createElement('i');
     del.setAttribute('class', 'fa-solid fa-trash options');
     del.addEventListener('click', () => {
-      document.querySelector('.myapp').querySelector(li).remove(li);
+      li.remove();
       list.removeItem(this);
     });
     const move = document.createElement('i');
@@ -63,8 +66,15 @@ export default class Item {
       move.setAttribute('style', 'display:none');
     });
     task.addEventListener('focusout', () => {
+      if (this.mouseOver) return;
       del.setAttribute('style', 'display:none');
       move.setAttribute('style', 'display:block');
+    });
+    del.addEventListener('mouseover', () => {
+      this.mouseOver = true;
+    });
+    del.addEventListener('mouseout', () => {
+      this.mouseOver = false;
     });
     move.setAttribute('style', 'display:block;');
     options.appendChild(del);
