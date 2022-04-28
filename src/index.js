@@ -40,7 +40,7 @@ button.addEventListener('click', () => {
   const newItem = new Item(input.value);
   addItem(list, newItem);
   render();
-  setTimeout(() => { input.value = ''; }, 1);
+  input.value = '';
 });
 
 input.addEventListener('keypress', (event) => {
@@ -51,7 +51,6 @@ input.addEventListener('keypress', (event) => {
 });
 
 clearBtn.addEventListener('click', () => {
-  console.log('removing all selected');
   list.removeSelected();
   render();
 });
