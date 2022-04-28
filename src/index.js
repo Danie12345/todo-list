@@ -26,7 +26,9 @@ const addItem = (list, item) => {
 
 const render = (added = false) => {
   if (added) {
-    domList.appendChild(new Item(input.value).template(list));
+    const item = new Item(input.value).template(list);
+    domList.appendChild(item);
+    item.querySelector('textarea').dispatchEvent(new Event('focus'));
   } else {
     domList.innerHTML = '';
     list.renderItems().forEach((item) => {
