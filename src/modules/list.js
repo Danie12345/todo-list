@@ -45,10 +45,11 @@ export default class List {
   }
 
   removeSelected() {
-    Object.values(this.list).forEach((item) => {
-      if (item.completed) {
-        this.removeItem(item);
-      }
+    const temp = Object.values(this.list).filter((item) => !item.completed);
+    this.list = {};
+    this.#updateStorage();
+    temp.forEach((item) => {
+      this.addItem(item);
     });
   }
 

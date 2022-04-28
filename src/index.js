@@ -24,11 +24,13 @@ const addItem = (list, item) => {
   list.addItem(item);
 };
 
-const render = (added = false) => {
-  if (added) {
-    const item = new Item(input.value).template(list);
+const render = (newItem = false) => {
+  if (newItem) {
+    const item = newItem.template(list);
+    setTimeout(() => {
+      item.querySelector('textarea').dispatchEvent(new Event('focus'));
+    }, 0);
     domList.appendChild(item);
-    item.querySelector('textarea').dispatchEvent(new Event('focus'));
   } else {
     domList.innerHTML = '';
     list.renderItems().forEach((item) => {
@@ -45,7 +47,7 @@ button.addEventListener('click', () => {
   if (input.value.replace('\n', '').replace(' ', '') === '') return;
   const newItem = new Item(input.value);
   addItem(list, newItem);
-  render(true);
+  render(newItem);
   input.value = '';
 });
 
