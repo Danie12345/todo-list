@@ -8,9 +8,26 @@ export default class Item {
   template(list) {
     const li = document.createElement('li');
     const check = document.createElement('button');
-    check.setAttribute('type', 'checkbox');
-    check.setAttribute('aria-label', 'Check completed task');
     const task = document.createElement('textarea');
+    const checkTask = () => {
+      if (!this.completed) {
+        task.style.textDecoration = 'line-through';
+        task.disabled = true;
+        check.classList.add('check');
+        this.completed = true;
+      } else {
+        task.style.textDecoration = 'none';
+        task.disabled = false;
+        check.classList.remove('check');
+        this.completed = false;
+      }
+      list.updateStorage();
+    };
+    check.addEventListener('click', checkTask);
+    window.addEventListener('load', () => {
+      this.completed = !list.list[this.index].completed;
+      checkTask();
+    });
     task.value = this.description;
     task.setAttribute('wrap', 'soft');
     task.setAttribute('maxlength', '128');
@@ -23,6 +40,12 @@ export default class Item {
       list.list[this.index].description = task.value;
       list.updateStorage();
     });
+    task.addEventListener('focusout', () => {
+      if (task.value.replace('\n', '').replace(' ', '') === '') {
+        document.querySelector(`#${this.listName}`).remove(li);
+        list.removeItem(this);
+      }
+    });
     const taskLabel = document.createElement('label');
     taskLabel.setAttribute('for', `${this.index}`);
     taskLabel.style.display = 'none';
@@ -30,7 +53,7 @@ export default class Item {
     const del = document.createElement('i');
     del.setAttribute('class', 'fa-solid fa-trash options');
     del.addEventListener('click', () => {
-      document.querySelector('myapp').remove(li);
+      document.querySelector('.myapp').querySelector(li).remove(li);
       list.removeItem(this);
     });
     const move = document.createElement('i');

@@ -9,14 +9,16 @@ const listTitle = 'Today\'s to-do\'s:'.slice(0, 69);
 const inputName = 'add-todo';
 const btnName = 'add-task';
 const listName = 'to-do';
-template.innerHTML = HTMLTemplate(listTitle, inputName, btnName, listName);
+const clearName = `clear-${listName}`;
+template.innerHTML = HTMLTemplate(listTitle, inputName, btnName, listName, clearName);
 template.classList.add('template');
 myapp.appendChild(template);
 const input = document.querySelector(`#${inputName}`);
 const button = document.querySelector(`#${btnName}`);
 const domList = document.querySelector(`#${listName}`);
+const clearBtn = document.querySelector(`#${clearName}`);
 
-const list = new List(Item, 'list');
+const list = new List(Item, listName, 'list');
 
 const addItem = (list, item) => {
   list.addItem(item);
@@ -46,6 +48,12 @@ input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     button.dispatchEvent(new Event('click'));
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  console.log('removing all selected');
+  list.removeSelected();
+  render();
 });
 
 render();
