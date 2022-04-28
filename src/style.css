@@ -1,10 +1,161 @@
-html {
+html,
+body {
   width: 100%;
   height: 100%;
   padding: 0%;
   margin: 0%;
 }
 
-.nohay {
-  color: red;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-title {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.list-title > * {
+  margin: 0% 8px;
+}
+
+.undo {
+  background-color: unset;
+  padding: 0%;
+  border: none;
+  outline: none;
+}
+
+.template {
+  max-width: 400px;
+  width: auto;
+  min-width: 280px;
+  max-height: 80vh; /* May affect once list grows too large */
+  height: auto;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.3);
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0%;
+  margin: 0%;
+  display: flex;
+  width: 100%;
+}
+
+ul {
+  flex-direction: column;
+}
+
+.list {
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  align-items: center;
+}
+
+.list > li {
+  width: 100%;
+  min-height: 40px;
+  height: auto;
+  justify-content: space-evenly;
+}
+
+.list > li > * {
+  border: none;
+  outline: none;
+}
+
+.list > li > input {
+  max-width: 300px;
+  width: auto;
+  min-width: 240px;
+  height: auto;
+  font-size: 18px;
+  font-weight: 100;
+  font-style: italic;
+  font-family: monospace;
+}
+
+.list > li > textarea {
+  max-width: 300px;
+  width: auto;
+  min-width: 240px;
+  padding-top: 8px;
+  font-size: 18px;
+  font-weight: 100;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list > li > textarea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari & Opera */
+}
+
+.list > li > button {
+  width: 10px;
+  height: 10px;
+  align-self: center;
+  padding: 0%;
+  background-color: unset;
+}
+
+.list-items > li > button {
+  background-color: rgb(0, 0, 0, 0.15);
+}
+
+.list > li > div {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 10px;
+  height: 100%;
+  padding: 0%;
+}
+
+.list > li > div > * {
+  display: none;
+  padding: 0%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(3, 3, 3, 0.7);
+  height: min-content;
+}
+
+a:active {
+  color: rgb(3, 3, 3, 0.4);
+}
+
+.clear {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  color: rgb(0, 0, 0, 0.4);
+}
+
+p.nothing-to-see-here {
+  display: none;
 }

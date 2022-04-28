@@ -11,7 +11,7 @@ This project is a basic booklist project.
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://danie12345.github.io/todo-list/)
+[Live Demo Link](https://danie12345.github.io/todo-list/dist/)
 
 ## Getting Started
 
