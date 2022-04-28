@@ -19,6 +19,10 @@ export default class Item {
     task.setAttribute('autofocus', 'true');
     task.setAttribute('spellcheck', 'false');
     task.setAttribute('id', `${this.index}`);
+    task.addEventListener('input', () => {
+      list.list[this.index].description = task.value;
+      list.updateStorage();
+    });
     const taskLabel = document.createElement('label');
     taskLabel.setAttribute('for', `${this.index}`);
     taskLabel.style.display = 'none';

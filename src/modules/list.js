@@ -18,6 +18,10 @@ export default class List {
     localStorage.setItem(this.storageName, JSON.stringify(this.list));
   }
 
+  updateStorage() {
+    this.#updateStorage();
+  }
+
   #retrieveStorage() {
     if (localStorage.getItem(this.storageName) === null) {
       this.#updateStorage();
