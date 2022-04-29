@@ -1,7 +1,8 @@
 export default class List {
-  constructor(ItemType, name = 'list') {
+  constructor(ItemType, listName, storageName = 'list') {
     this.ItemType = ItemType;
-    this.storageName = name;
+    this.storageName = storageName;
+    this.listName = listName;
     this.list = {};
     this.#retrieveStorage();
   }
@@ -16,6 +17,10 @@ export default class List {
 
   #updateStorage() {
     localStorage.setItem(this.storageName, JSON.stringify(this.list));
+  }
+
+  updateStorage() {
+    this.#updateStorage();
   }
 
   #retrieveStorage() {
@@ -37,6 +42,15 @@ export default class List {
   removeItem(item) {
     this.#removeItem(item);
     this.#updateStorage();
+  }
+
+  removeSelected() {
+    const temp = Object.values(this.list).filter((item) => !item.completed);
+    this.list = {};
+    this.#updateStorage();
+    temp.forEach((item) => {
+      this.addItem(item);
+    });
   }
 
   renderItems() {

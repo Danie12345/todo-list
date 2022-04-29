@@ -39,9 +39,8 @@ body {
   max-width: 400px;
   width: auto;
   min-width: 280px;
-  max-height: 80vh; /* May affect once list grows too large */
   height: auto;
-  min-height: 240px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,6 +116,11 @@ ul {
 
 .list-items > li > button {
   background-color: rgb(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.check {
+  background-color: rgb(0, 102, 255) !important;
 }
 
 .list > li > div {

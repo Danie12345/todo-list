@@ -1,4 +1,4 @@
-const HTMLTemplate = (title, input, btn, list) => `
+const HTMLTemplate = (title, input, btn, list, clear) => `
   <div class="list-title">
     <label>${title}</label>
     <button class="fa-solid fa-arrow-rotate-left undo" id="sort${list}" aria-label="Undo task repositioning"></button>
@@ -10,7 +10,7 @@ const HTMLTemplate = (title, input, btn, list) => `
     </li>
   </ul>
   <ul id="${list}" class="list list-items"></ul>
-  <div class="clear"><a href="#" onclick="return false;">Clear all selected</a></div>
+  <div class="clear"><a href="#" id="${clear}" onclick="return false;">Clear all selected</a></div>
 `;
 
 export default HTMLTemplate;
